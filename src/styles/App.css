@@ -1,0 +1,23 @@
+.main {
+  display: grid;
+  background-color: #5CBFFF;
+  width: 100%;
+  min-height: 200px;
+  margin-left: 12px;
+  margin-right: 12px;
+  border-radius: 3px;
+}
+
+.container{
+  border: none;
+  min-height: 200px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+}
+
+h3{
+  position: center;
+  padding: 2.5%;
+  text-align: center;
+  color: #fff;
+}

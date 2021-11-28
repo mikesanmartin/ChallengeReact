@@ -1,0 +1,4 @@
+Falta redirección de LOGIN
+Falta asegurar rutas
+Falta componente Home
+Falta pulir estilos CSS
