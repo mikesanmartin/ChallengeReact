@@ -28,7 +28,8 @@ const GetToken = (response) => {
 
     if (!SaveToken){
         return(
-            UserRedirect()
+            // console.log('Get Token ejecutado')
+            UserRedirect('/home')
         )
     }
 }

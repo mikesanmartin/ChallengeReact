@@ -1,28 +1,21 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import { HeroURL } from '../../features/URL'
 import { useState } from 'react'
 import axios from 'axios'
 import Button from 'react-bootstrap/Button'
-import Alert from 'react-bootstrap/Alert'
+import { validate } from './Validate'
 import '../../styles/HeroCard.css'
-import AddToTeam from './AddToTeam'
-
-const AccessToken = '10226325963000903'
-const HeroURL = `https://superheroapi.com/api/${AccessToken}/` 
-
-const validate = (values) => {
-    const errors = {}
-    if(!values.search){
-        errors.search = <Alert variant={'warning'}>Por favor ingrese un nombre</Alert>
-    }
-    return errors
-}
-
-// function Add(data){
-//     console.log(data)
-// }
+import { useDispatch } from 'react-redux'
+import { addHero } from '../../features/actions'
 
 const HeroFinder = () => {
     const [hero, setHero] = useState([])
+
+    const dispatch = useDispatch()
+
+    const handleAddHero = (data) => {
+        dispatch(addHero(data));
+    };
 
     return(
         <div className='container'>
@@ -52,7 +45,7 @@ const HeroFinder = () => {
                     <div className='Hero' key={data.id}>
                         <h5>{data.name}</h5>
                         <img src={data.image.url} alt='error'/>
-                        <Button type='button' variant='outline-dark' onClick={(props) => AddToTeam(data)}>Agregar a equipo</Button>
+                        <Button type='button' variant='outline-dark' onClick={() => handleAddHero(data)}>Agregar a equipo</Button>
                     </div>
                 )}
             </div>
